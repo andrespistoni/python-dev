@@ -10,7 +10,7 @@ def conectar(x):
 	con = sg.connect(
 		dsn = ruta,
 		user = 'sysdba',
-		password = 'angygarro',
+		password = 'Rosario20',
 		charset ='utf8'	
 	)
 	cx = con.cursor()

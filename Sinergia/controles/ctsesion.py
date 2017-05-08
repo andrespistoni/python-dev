@@ -89,8 +89,10 @@ class Inicio(QMainWindow):
 			rol = 'Administrador'
 		else:
 			rol = 'Empleado'
-
-		self.pt.au.foto.setText('Todavia \n no hay foto' + '\n' + str(foto))
+		
+		self.pt.au.foto.setPixmap(QPixmap('{}/graficas/fotos/{}.jpg'.format(os.getcwd(),str(self.datos[0][1]))))
+		# self.pt.au.foto.setText('Todavia \n no hay foto' + '\n' + str(foto))
+		# self.pt.au.foto.setText(str(self.datos[0][6]))
 		self.pt.au.nom.setText('Nombre:  '  + nombre + '  ' + ape)
 		self.pt.au.corr.setText('Correo:  '  + correo)
 		self.pt.au.niv.setText(str('Nivel:  '  + rol))
