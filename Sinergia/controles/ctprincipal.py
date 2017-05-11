@@ -7,7 +7,6 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
-
 from graficas.principal import *
 
 class Principal(QMainWindow):

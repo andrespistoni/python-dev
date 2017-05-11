@@ -7,8 +7,8 @@ import os
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-
-
+from PyQt5.QtWebEngineWidgets import QWebEngineView
+from graficas.htmltest import html_Web
 from ajustes import mg
 
 
@@ -154,18 +154,24 @@ class Sinergia(QMainWindow):
 		self.reticula5 = QGridLayout(self.ceja)
 		self.reticula5.setObjectName("reticula5")
 
-		self.lista = QTableWidget(self.ceja)
-		self.lista.setObjectName("lista")
-		self.lista.setColumnCount(1)
-		self.lista.setRowCount(0)
-		item = QTableWidgetItem()
-		font = QFont()
-		font.setFamily("Raleway Thin")
-		font.setPointSize(14)
-		item.setFont(font)
-		self.lista.setHorizontalHeaderItem(0, item)
+		# self.lista = QTableWidget(self.ceja)
+		# self.lista.setObjectName("lista")
+		# self.lista.setColumnCount(1)
+		# self.lista.setRowCount(0)
+		# item = QTableWidgetItem()
+		# font = QFont()
+		# font.setFamily("Raleway Thin")
+		# font.setPointSize(14)
+		# item.setFont(font)
+		# self.lista.setHorizontalHeaderItem(0, item)
+		# self.reticula5.addWidget(self.lista, 0, 0, 1, 1)
 
-		self.reticula5.addWidget(self.lista, 0, 0, 1, 1)
+		# self.htmlw = html_Web()
+		# self.htmlw.armar_Html()
+		self.web_view = QWebEngineView()
+		self.web_view.load(QUrl().fromLocalFile(os.path.split(os.path.abspath(__file__))[0]+r'/test.html'))
+
+		self.reticula5.addWidget(self.web_view, 0, 0, 1, 1)
 		self.tabla.addTab(self.ceja, "")
 		self.grid4.addWidget(self.tabla, 0, 0, 1, 1)
 		self.grid.addWidget(self.mr4, 1, 1, 1, 2)
@@ -370,8 +376,10 @@ class Sinergia(QMainWindow):
 		self.corr.setText("Correo:")
 		self.niv.setText("Nivel:")
 		self.sigbox.setTitle("Bienvenido a Sinergia !!")
-		item = self.lista.horizontalHeaderItem(0)
-		item.setText("rrrr")
+		# item = self.lista.horizontalHeaderItem(0)
+		# item.setText("rrrr")
+
+
 		self.tabla.setTabText(self.tabla.indexOf(self.ceja), ("Pendientes"))
 		self.verbox.setTitle("Ver todo")
 		self.regbox.setTitle("Registros")
