@@ -1,26 +1,38 @@
+# -*- coding: utf-8 -*-
 import sys
 sys.path.append("..")
 import os
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtWidgets import QWidget, QApplication, QLineEdit, QVBoxLayout, QHBoxLayout, QPushButton, QProgressBar
-from PyQt5.QtCore import QUrl
-# import urllib.request
- 
-# sContenidoPagina = urllib.request.urlopen('/theme/index.html')
+from PyQt5.QtCore import QUrl, Qt
+from flask import redirect, url_for
+import multiprocessing
+import imp
 
-# print sContenidoPagina.read()
+class MyProcess(multiprocessing.Process):
+    def __init__(self,thing):
+        multiprocessing.Process.__init__(self)
+        self.thing=thing
 
-class Example(QWidget):
+    def run(self):
+        print('running...', self.thing())
+
+class Begin(QWidget):
     def __init__(self):
         super().__init__()
-        self.resize(640, 320)
+
+        self.setWindowState(Qt.WindowMaximized)
         self.setWindowTitle('PyQt-5 WebEngine')
 
         self.progress = QProgressBar()
         self.progress.setValue(0)
+        
+        self.module=imp.load_source('rout', './rout.py')
+        self.thing=self.module.servRun
+        self.p=MyProcess(self.thing)
+        self.p.start()
 
         self.web_view = QWebEngineView()
-        # self.web_view.load(QUrl().fromLocalFile(os.path.split(os.path.abspath(__file__))[0]+r'\test.html'))
         self.web_view.load(QUrl('http://127.0.0.1:5000'))
         self.web_view.loadProgress.connect(self.webLoading)
 
@@ -37,41 +49,11 @@ class Example(QWidget):
     def webLoading(self, event):
         self.progress.setValue(event)
 
+    def closeEvent(self, event):
+        self.p.terminate()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    win = Example()
+    win = Begin()
     win.show()
     sys.exit(app.exec_())
-
-
-
-
-
-
-
-
-
-
-
-
-# import sys
-# from PyQt5.QtCore import QUrl
-# from PyQt5.QtWebEngineWidgets import QWebEngineView
-# from PyQt5.QtWidgets import QApplication
-
-# class Browser(QWebEngineView):
-
-#     def __init__(self):
-#         QWebEngineView.__init__(self)
-#         self.loadFinished.connect(self._result_available)
-
-#     def _result_available(self, ok):
-#         frame = self.page().mainFrame()
-#         print(unicode(frame.toHtml()).encode('utf-8'))
-
-# if __name__ == '__main__':
-#     app = QApplication(sys.argv)
-#     view = Browser()
-#     view.load(QUrl('http://www.google.com'))
-#     app.exec_()
