@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Login | Propeller - Admin Dashboard">
+  <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+  <title>inicio</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='assets/images/favicon.ico') }}">
+
+  <!-- Google icon -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Bootstrap css -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='components/textfield/css/textfield.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='components/checkbox/css/checkbox.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='components/icons/css/google-icons.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='components/navbar/css/navbar.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='components/sidebar/css/sidebar.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='components/modal/css/modal.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='components/button/css/button.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='components/dropdown/css/dropdown.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='components/card/css/card.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='components/list/css/list.css') }}">  
+  
+
+</head> 
+
+<body>
+<!-- Nav menu -->
+<nav class="navbar navbar-inverse pmd-navbar navbar-fixed-top pmd-z-depth">
+  <div class="container-fluid"> 
+      <!-- Sidebar Toggle Button-->
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+          <a href="javascript:void(0);" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-primary pull-left margin-r8 pmd-sidebar-toggle"><i class="material-icons">menu</i></a>
+          <a class="navbar-brand" href="javascript:void(0);">Brand</a> 
+      </div>
+      
+      <!-- Navbar Right icon -->		
+      <!--<div class="pmd-navbar-right-icon pull-right"> 
+          <a href="javascript:void(0);" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-primary"><i class="material-icons pmd-sm">search</i></a>
+          <a href="javascript:void(0);" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-primary topbar-toggle visible-xs-inline-block" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><i class="material-icons pmd-sm">more_vert</i></a>
+      </div> -->
+  </div>
+</nav>
+<!-- Sidebar -->
+<section id="pmd-main">
+    <!-- Left sidebar -->
+    <aside class="pmd-sidebar sidebar-custom sidebar-default pmd-sidebar-slide-push pmd-sidebar-left pmd-z-depth sidebar-hide-custom" role="navigation" style="position: absolute;">
+        <ul class="nav pmd-sidebar-nav">
+            <!-- My Account -->
+            <li class="dropdown pmd-dropdown pmd-user-info">
+                <a aria-expanded="false" data-sidebar="true" data-toggle="dropdown" class="btn-user dropdown-toggle media" href="javascript:void(0);">
+                    <div class="media-left">
+                        <img width="40" height="40" alt="avatar" src="{{ url_for('static', filename='assets/images/avatar-icon-40x40.png') }}">
+                    </div>
+                    <div class="media-body media-middle">D,Material Admin</div>
+                    <div class="media-right media-middle"><i class="material-icons pmd-sm">more_vert</i></div>
+                </a>
+                <ul class="dropdown-menu">
+                    <li> <a class="pmd-ripple-effect" href="/login" tabindex="-1"><i class="material-icons media-left media-middle">person</i> <span class="media-body">View Profile</span></a></li>
+                    <li> <a class="pmd-ripple-effect" href="/" tabindex="-1"><i class="material-icons media-left media-middle">settings</i> <span class="media-body">Settings</span></a></li>
+                    <li> <a class="pmd-ripple-effect" href="javascript:void(0);" tabindex="-1"><i class="material-icons media-left media-middle">history</i> <span class="media-body">Logout</span></a></li>
+                </ul>
+            </li>
+            <li> <a class="pmd-ripple-effect" href="/usuario/add"><i class="material-icons media-left media-middle">delete</i> <span class="media-body">Trash</span></a> </li>
+            <li> <a class="pmd-ripple-effect" href="javascript:void(0);"><i class="material-icons media-left media-middle">notifications</i> <span class="media-body">Spam</span></a> </li>
+            <li> <a class="pmd-ripple-effect" href="javascript:void(0);"><i class="material-icons media-left media-middle">notifications</i> <span class="media-body">Follow Up</span></a> </li>
+        </ul>
+    </aside>
+
+    <!-- Content -->
+    <div class="pmd-content" id="content">
+      <div class="container" style="margin-top: 25px;">
+      
+          {% block body %}
+          
+          {% endblock %}
+
+      </div>
+    </div>
+    
+    <div class="pmd-sidebar-overlay"></div>
+</section>
+
+
+<!-- Jquery js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+<!--<script src="{{ url_for('static', filename='assets/js/jquery-1.12.2.min.js') }}"></script>-->
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"
+<script src="{{ url_for('static', filename='assets/js/propeller.min.js') }}"></script>
+
+<!-- Propeller textfield js -->
+<script type="text/javascript" src="{{ url_for('static', filename='components/checkbox/js/checkbox.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='components/textfield/js/textfield.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='components/dropdown/js/dropdown.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='components/sidebar/js/sidebar.js') }}"></script>
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    //$("#ok").hide();
+    $('#pagina').show("6000");
+    event.preventDefault();
+    $("#formRegistro").validate({
+        rules: {
+            name: { required: true, minlength: 2},
+            user: { required: true, minlength: 2},
+            email: { required:true, email: true},
+            password: { required: true, minlength: 4, maxlength: 15},
+            cpassword: { required: true, equalTo: '#password'}
+        },
+        messages: {
+            name: "Debe introducir su nombre.",
+            user: "Debe introducir su usuario.",
+            email : "Debe introducir un email válido.",            
+            password : "Debe introducir un password.",
+            cpassword : {
+              required: "Debe introducir devuelta el mismo password.",
+              equalTo: "No coinciden los password"
+            }
+        },
+          errorPlacement : function(error, element) {
+          $(element).closest('.form-group').find('.help-block').html(error.html());
+          },
+          highlight : function(element) {
+          $(element).closest('.form-group').removeClass('success').addClass('danger');
+          },
+          unhighlight: function(element, errorClass, validClass) {
+          $(element).closest('.form-group').removeClass('danger').addClass('success');
+          $(element).closest('.form-group').find('.help-block').html('');
+          },
+
+        submitHandler: function(form){
+            var user = $('#user').val();
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var pass = $('#password').val();
+            //$('form').serialize(), // Se usa para tomar Solo los valores del formulario.
+              $.ajax({                        
+                type: "POST",
+                dataType: 'json',
+                url: "/",
+                data: {'user': user, 'name': name , 'email': email, 'password': pass},
+                beforeSend: function () {
+                  $('#registro-mensaje-info').show();
+                  $("#registro-mensaje-info").text("Procesando, espere por favor...");
+                },           
+                success: function(result)
+                {
+                  console.log(result);
+                  $("#registro-result-user").text('Usuario: ' + result.user);
+                  $("#registro-result-name").text('Apellido y Nombre: ' + result.name);
+                  $("#registro-result-email").text('Email: ' + result.email);
+                  $("#registro-result-password").text('Contraseña: ' + result.password);
+                  $('#user').val("");
+                  $('#name').val("");
+                  $('#email').val("");
+                  $('#password').val("");
+                  $('#cpassword').val("");
+                  $('#registro-mensaje-danger').text("");
+                  $('#registro-mensaje-info').text("");
+                  $('#registro-mensaje-info').hide("slow");
+                  $('#registro-mensaje-danger').hide("slow");
+                },
+                error: function(result){
+                    $('#registro-mensaje-danger').show();
+                    $("#registro-mensaje-danger").html("Error \
+                                      <br/> \
+                                      " + result ); 
+                  console.log("error");
+                  console.log(result);
+                }
+            });
+        }
+    });
+});
+</script>
+</body>
+</html>

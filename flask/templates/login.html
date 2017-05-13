@@ -1,0 +1,29 @@
+{% extends 'template.html' %}
+
+{% block body %}
+
+<section class="row">
+
+	<form action="/" method="POST" class="form-horizontal">
+		<div class="form-group pmd-textfield pmd-textfield-floating-label">
+			<label for="first-name">Name</label>
+			<input type="text" class="mat-input form-control" id="name" name="name" value="">
+		</div>
+		<div class="form-group pmd-textfield pmd-textfield-floating-label">
+			<label for="first-name">Email Address</label>
+			<input type="text" class="mat-input form-control" id="email" name="email" value="">
+		</div>
+		<div class="form-group pmd-textfield pmd-textfield-floating-label">
+			<label for="first-name">Contraseña</label>
+			<input type="password" class="mat-input form-control" id="email" name="password" value="">
+		</div>
+		<input type="submit" class="btn pmd-btn-raised btn-primary btn-block pmd-ripple-effect"
+			value="Entrar">
+		<!--<button class="btn pmd-btn-raised btn-primary btn-block pmd-ripple-effect" type="submit">
+			Entrar
+		</button>-->
+	</form>
+
+</section>
+
+{% endblock %}

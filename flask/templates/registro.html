@@ -1,0 +1,70 @@
+{% extends 'template.html' %}
+
+{% block body %}
+
+<div class="row col-md-6 col-md-offset-3 pmd-card pmd-card-default pmd-z-depth pmd-card-custom-form">
+	<h1 class="text-center">Formulario de registro</h1>
+
+	<section class="row " id="pagina" style="display: none">
+	<!--action="/" method="POST"-->
+		<form  class="form-horizontal pmd-card-body" id="formRegistro">
+
+			<div class="form-group pmd-textfield pmd-textfield-floating-label">
+				<label for="first-name" class="control-label pmd-input-group-label">Usuario</label>
+				<div class="input-group">
+					<div class="input-group-addon"><i class="material-icons md-dark pmd-sm">person</i></div>
+					<input type="text" class="mat-input form-control" id="user" name="user" value="" >					
+				</div>
+				<span class="help-block alert-danger" id="error"></span>
+			</div>		
+			<div class="form-group pmd-textfield pmd-textfield-floating-label">
+				<label for="first-name" class="control-label pmd-input-group-label">Apellido y nombre</label>
+				<div class="input-group">
+					<div class="input-group-addon"><i class="material-icons md-dark pmd-sm">perm_identity</i></div>
+					<input type="text" class="mat-input form-control" id="name" name="name" value="">
+				</div>
+				<span class="help-block alert-danger" id="error"></span>
+			</div>
+			<div class="form-group pmd-textfield pmd-textfield-floating-label">
+				<label for="first-name" class="control-label pmd-input-group-label">Correo Electronico</label>
+				<div class="input-group">
+					<div class="input-group-addon"><i class="material-icons md-dark pmd-sm">email</i></div>
+					<input type="text" class="mat-input form-control" id="email" name="email" value="">
+				</div>
+				<span class="help-block alert-danger" id="error"></span>
+			</div>
+			<div class="form-group pmd-textfield pmd-textfield-floating-label">
+				<label for="first-name" class="control-label pmd-input-group-label">Contraseña</label>
+				<div class="input-group">
+					<div class="input-group-addon"><i class="material-icons md-dark pmd-sm">https</i></div>
+					<input type="password" class="mat-input form-control" id="password" name="password" value="">
+				</div>
+				<span class="help-block alert-danger" id="error"></span>
+			</div>
+			<div class="form-group pmd-textfield pmd-textfield-floating-label">
+				<label for="first-name" class="control-label pmd-input-group-label">Ingrese nuevamente la Contraseña</label>
+				<div class="input-group">
+					<div class="input-group-addon"><i class="material-icons md-dark pmd-sm">https</i></div>
+					<input type="password" class="mat-input form-control" id="cpassword" name="cpassword" value="">
+				</div>
+				<span class="help-block alert-danger" id="error"></span>
+			</div>		
+
+			<div class="col-md-6 col-md-offset-3  pmd-card-actions">
+				<input type="submit" class="btn pmd-btn-raised btn-primary btn-block pmd-ripple-effect"
+					value="Guardar usuario" id="botoncito">
+			</div>
+
+		</form>
+		
+	</section>
+	<div id="registro-mensaje-success" class="alert alert-success" style="display: none">El usuario se guardo con los siguientes datos.</div>
+	<div id="registro-mensaje-danger" class="alert alert-danger" style="display: none"></div>
+	<div id="registro-mensaje-info" class="alert alert-info"  style="display: none"></div>
+	<div id="registro-result-user"> </div>
+	<div id="registro-result-name"></div>
+	<div id="registro-result-email"></div>
+	<div id="registro-result-password"></div>
+</div> 
+
+{% endblock %}

@@ -3,9 +3,8 @@ import sys
 sys.path.append("..")
 import os
 from PyQt5.QtWebEngineWidgets import QWebEngineView
-from PyQt5.QtWidgets import QWidget, QApplication, QLineEdit, QVBoxLayout, QHBoxLayout, QPushButton, QProgressBar
+from PyQt5.QtWidgets import QWidget, QApplication, QVBoxLayout, QProgressBar
 from PyQt5.QtCore import QUrl, Qt
-from flask import redirect, url_for
 import multiprocessing
 import imp
 
@@ -22,7 +21,7 @@ class Begin(QWidget):
         super().__init__()
 
         self.setWindowState(Qt.WindowMaximized)
-        self.setWindowTitle('PyQt-5 WebEngine')
+        self.setWindowTitle('Sistema Comercial')
 
         self.progress = QProgressBar()
         self.progress.setValue(0)
@@ -41,10 +40,6 @@ class Begin(QWidget):
         root.addWidget(self.progress)
 
         self.setLayout(root)
-
-    def btnIrClicked(self, event):
-        url = QUrl(self.url.text())
-        self.web_view.page().load(url)
 
     def webLoading(self, event):
         self.progress.setValue(event)
